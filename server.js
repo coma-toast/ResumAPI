@@ -6,7 +6,7 @@ var Http = require('http');
 var Express = require('express');
 var BodyParser = require('body-parser');
 var Swaggerize = require('swaggerize-express');
-var SwaggerUi = require('Swaggerize-ui'); //provides UI
+var SwaggerUi = require('swaggerize-ui'); //provides UI
 var Path = require('path');
 
 var App = Express();
@@ -33,7 +33,7 @@ App.use(BodyParser.urlencoded({
 
 App.use(Swaggerize({
     api: Path.resolve('./config/swagger.json'),
-    handlers: Path.resolve('./handlers')
+    handlers: Path.resolve('./handlers'),
     docspath: '/swagger'
 }));
 
