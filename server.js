@@ -48,3 +48,5 @@ Server.listen(port, function () {
     // console.log('App running on %s:%d', this.address().address, this.address().port);
     // /* eslint-disable no-console */
 });
+
+App.get('/skills', function)
