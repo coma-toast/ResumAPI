@@ -107,7 +107,7 @@
       "items": {
         "type": "string",
         "enum": [
-          "test work history"
+          "field": [1,2,3]
         ]
       }
     },
