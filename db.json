@@ -1,0 +1,219 @@
+
+  {
+    "skills": [
+      {
+        "id": 1,
+        "name": "Windows",
+        "years_used": "20",
+        "proficiency": "Expert"
+      },
+      {
+        "id": 2,
+        "name": "Linux",
+        "years_used": "5",
+        "proficiency": "Expert"
+      },
+      {
+      "id": 3,
+      "name": "Networking",
+      "years_used": "15",
+      "proficiency": "Expert"
+      },
+      {
+      "id": 4,
+      "name": "Javascript",
+      "years_used": "1",
+      "proficiency": "Upper Beginner"
+      },
+      {
+      "id": 5,
+      "name": "Python",
+      "years_used": "1",
+      "proficiency": "Upper Beginner"
+      },
+      {
+      "id": 6,
+      "name": "Virtualization",
+      "years_used": "8",
+      "proficiency": "Expert"
+      },
+      {
+      "id": 7,
+      "name": "ZFS",
+      "years_used": "3",
+      "proficiency": "Expert"
+      },
+      {
+      "id": 8,
+      "name": "iOS/Android",
+      "years_used": "10",
+      "proficiency": "Expert"
+      }
+    ],
+    "projects": [
+      {
+      "id": 1,
+      "name": "ResumAPI",
+      "description": "This ^ lol",
+      "url/other_info": "https://github.com/coma-toast/ResumAPI"
+      },
+      {
+      "id": 2,
+      "name": "Datto XML Feed Dashboard",
+      "description": "A JS based dashboard that parses data from the Datto XML feed and displays it in an easy to read format",
+      "url/other_info": "https://kb.datto.com/hc/en-us/articles/115005894343-Integrations-How-do-I-create-a-dashboard-using-XML-and-HTML"
+      },
+      {
+      "id": 3,
+      "name": "CXI-Pre-Interview Code Samples",
+      "description": "3 coding challenges to prepare for an Associate CXI Engineer interview",
+      "url/other_info": "https://github.com/coma-toast/CXI-PreInterviewSamples"
+      },
+      {
+      "id": 4,
+      "name": "Twemperature",
+      "description": "A Python app to log temperatures via a Raspberry Pi and a temp sensor, and tweet any temps that exceed a limit. #twemperature",
+      "url/other_info": "https://github.com/coma-toast/twemperature"
+      },
+      {
+      "id": 5,
+      "name": "cconv.py",
+      "description": "A Python app to query cryptcurrency prices and return the USD value. The original API it queried has since been shut down",
+      "url/other_info": "https://github.com/coma-toast/cconv.py"
+      },
+      {
+      "id": 6,
+      "name": "Dubs on Defrost",
+      "description": "A VW/Audi car show I started in 2007. Peak attendance was 2014 at 3400 attendees.",
+      "url/other_info": "dubsondefrost.net"
+      }
+    ],
+    "work_history": [
+      {
+        "id": 1,
+        "title": "Network Analyst",
+        "company": "Perimeter USA",
+        "years": "7/2004 — 11-2005",
+        "location": "Milford, CT",
+        "description": "
+Network monitoring via SNMP/ICMP based tools
+Answering incoming client support calls
+Client circuit/Telco troubleshooting
+Cisco/Nortel/Motorola router troubleshooting
+Application support
+Ticket creation and documentation
+Provided administrative support for email and VPN users
+Instructed on advanced networking techniques and configurations"
+      },
+      {
+        "id": 2,
+        "company": "IBM",
+        "title": "Incident Manager",
+        "years": "11/2005 — 6/2007",
+        "location": "Southbury, CT",
+        "description": "
+Monitor servers for any problems or outages using monitoring tools
+Notify appropriate support teams of reported issues within a specified SLA
+Managed support call with SME’s to resolve any server outages
+Documentation of actions and basic physical server troubleshooting for off-site support teams."
+      },
+      {
+        "id": 3,
+        "company": "Hologic",
+        "title": "Helpdesk Analyst",
+        "years": "12/2007 — 10/2008",
+        "location": "Danbury, CT",
+        "description": "
+Rotational support for Helpdesk support calls and emails
+Local and remote hardware repair
+Remote and on-site user support for basic desktop issues such as network connectivity, remote access & VPN, email support, anti-virus and anti-spyware using Trend Micro Officescan and physical hardware troubleshooting and repair.
+Assisted with a complicated domain migration after a company merger"
+      },
+      {
+        "id": 4,
+        "company": "Boehringer-Ingelheim",
+        "title": "Helpdesk Analyst",
+        "years": "10/2008 — 3/2010",
+        "location": "Danbury, CT",
+        "description": "
+Answer incoming support calls, emails and voicemails.
+Remotely support 5000+ users with typical desktop issues, network connectivity, remote access, email support and proprietary application support
+Supported users with Windows XP and Office 2003/2007
+Assisted with home networking issues and VPN troubleshooting
+Administration of Trend Micro Officescan client and spyware removal using Malware Bytes Anti-Malware."
+      },
+      {
+        "id": 5,
+        "company": "Affinion Group",
+        "title": "Incident Manager",
+        "years": "7/2010 — 2/2015",
+        "location": "Trumbull, CT",
+        "description": "
+Began at Affinion as a Helpdesk Support Technician supporting approximately 4000 users across 10 different locations. 1 of 3 highly skilled technicians supporting level 1 and level 2 support calls, including Incident Management calls. Incident and Problem Management was moved to a new organization. Began at a junior level and left the group as a Senior Analyst.
+Supported Dell Desktops and Laptops, Windows XP/7/8, Office 2003/2007/2010/2013
+VPN token management (multiple systems – Cryptocard, RSA and Safenet; hardware and software tokens)
+Active Directory account management and maintenance , security groups, user home drives
+Created a New Hire pamphlet to be given to all new employees with relevant IT information
+Trained and received escalation tickets from junior level analysts
+Answered 400 to 600 phone calls and 300 emails per month.
+Created a knowledgebase for the Service Desk on the company’s internal wiki site due to a complete lack of a knowledgebase.
+Assisted with Windows XP to Windows 7 migrations
+Assisted with Office 2003 to Office 2010 migrations
+Supported IOS, Android, Blackberry and Windows Phone devices on a BES and on O365.
+Supported users during migration from Exchange to O365, including Lync and Single Sign0n setup
+Supported VP’s and C level executives remotely and desk side.
+Promoted to local desktop support for approximately 150 onsite users in August of 2013
+Promoted to Incident Manager in October of 2013. Currently 1 of 4 Incident Managers and handle 36% of all company outages.
+Manages incidents following the ITIL Service Management model and best practices
+Secondary responsibilities include Problem Management ticket creation and investigation
+Began taking some Problem Management responsibilities as of May 2014, including CFA Board Review and Root Cause Analysis data gathering"
+      },
+      {
+        "id": 6,
+        "company": "Datto",
+        "title": "Tier 2 Technical Support Expert",
+        "years": "5/2015 – Current",
+        "location": "Norwalk, CT",
+        "description": "
+Very quickly became one of the top techs both in stats and knowledge
+Assisted less experienced techs with questions or complex problems
+Provided Technical Support for MSP's on all varieties of Datto products.
+Extensive use of ZFS for managing backups, file restores and Virtual Machines
+Datto devices use Linux (Ubuntu) for the OS, supported OS updates, package updates and Linux issues
+Assisted with Disaster Recovery situations using file restores, local VM's, offsite VM's and Bare Metal Restores
+Created various types of file restores, such as SAMBA, iSCSI, NFS, FTP and sFTP
+Managed VirtualBox and KVM VM's using the GUI and the CLI
+Managed both MDADM and ZPOOL RAIDs on devices
+On one of the first rotations of the Disaster Recovery team that deals only with Disasters. Focus on restoring production servers either by local or offsite VM's, or VHD/VMDK exports.
+Part of the formation of the International team with the goal of bridging the US Tech Support team with the UK, Australia and any future overseas teams
+Selected to have Network+ training as an asset to the company
+Completed the Network+ training and passed the exam with the highest score in the Norwalk class (50% failure rate for the class)
+Selected to be one of the techs that supports Backupify for cloud to cloud backup support
+Resolve boot issues for physical and virtual machines in DR scenarios and restore scenarios
+Assist Partners in importing VHD/VMDK's to ESX/HyperV
+Very active in employee team building activities.
+Evaluated learning systems for Network+ course for the entire Tech Support team
+Designated Saturday and backup tech for Datto's largest Partner
+Wrote the screenplay, directed, produced and acted in a video project contest for employees (https://www.youtube.com/watch?v=cWspPkDfCQ8)
+Promoted to Tier2 in June of 2016 and quickly became one of the top members of the Tier 2 team
+Handle high priority issues escalated by Sales
+Able to dig deep into complex issues and find a solution
+A member of or past participant in the following teams: Code Red (for Disaster Recovery situations); International Team (for integrating our UK and US offices); Backupify (for supporting our Cloud backup solution); a team that handles specific high-profile clients; Network+ training group; The next team I will be a part of is the Virtual Platform team
+I am the top Tier2 chosen to revamp any problem areas – I was moved to the DR team when previous iterations of the team had lower performance; I was moved to Sundays when a lower Tier2 tech was unable to complete all needed tasks on Sundays; I was given the responsibility of supporting Integrations for Datto products and developed a team, KB’s, training and processes.
+Assist Tier1’s with complicated tickets or phone calls they can’t figure out
+Gather technical data for the KB team to create KB articles
+Picked to be the Integrations L2 to be the primary support resource for issues related to our ConnectWise, Labtech, Autotask, Kaseya and XML integrations
+Attend SCRUM and sprint demo meetings for the Portal team for issues related to Integrations
+Created an “Integrations Station” VM with all our integrations systems installed for techs to use for learning or troubleshooting
+Created a basic dashboard using Javascript/HTML/CSS that parses alert data and information from the XML feed and formats it into a table:
+Created a KB article on how to replicate the XML feed dashboard that is partner facing https://kb.datto.com/hc/en-us/articles/115005894343-Integrations-How-do-I-create-a-dashboard-using-XML-and-HTML-
+Good example of digging into code to find a solution:
+https://dattoinc.zendesk.com/agent/tickets/487539
+https://dattoinc.zendesk.com/agent/tickets/511320
+https://dattoinc.zendesk.com/agent/tickets/487539
+Good example of thinking of an outside the box solution:
+https://dattoinc.zendesk.com/agent/tickets/514668"
+      }
+    ]
+
+  }
