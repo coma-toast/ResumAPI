@@ -12,6 +12,30 @@
         "name": "Linux",
         "years_used": "5",
         "proficiency": "Expert"
+      },
+      {
+      "id": 3,
+      "name": "Networking",
+      "years_used": "15",
+      "proficiency": "Expert"
+      },
+      {
+      "id": 4,
+      "name": "Javascript",
+      "years_used": "1",
+      "proficiency": "Upper Beginner"
+      },
+      {
+      "id": 5,
+      "name": "Python",
+      "years_used": "1",
+      "proficiency": "Upper Beginner"
+      },
+      {
+      "id": 6,
+      "name": "Virtualization",
+      "years_used": "8",
+      "proficiency": "Expert"
       }
     ]
   }
