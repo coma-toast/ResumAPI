@@ -49,4 +49,8 @@ Server.listen(port, function () {
     // /* eslint-disable no-console */
 });
 
-App.get('/skills', function)
+App.get('/skills', function (req, res) {
+  console.log("skills");
+  res.end(JSON.stringify(skills.json))
+  console.log(res);
+});

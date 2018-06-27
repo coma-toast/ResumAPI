@@ -1,7 +1,17 @@
-[
+
   {
-    "skillId": 1 {
-      "name":""
-    }
+    "skills": [
+      {
+        "id": 1,
+        "name": "Windows",
+        "years_used": "20",
+        "proficiency": "Expert"
+      },
+      {
+        "id": 2,
+        "name": "Linux",
+        "years_used": "5",
+        "proficiency": "Expert"
+      }
+    ]
   }
-]
