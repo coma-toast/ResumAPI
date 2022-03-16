@@ -44,12 +44,10 @@ func GenerateRandomString(length int) string {
 	return output.String()
 }
 
-func (l Logger) LogInfo(input string, value string, data interface{}) {
-	info := l.Log.WithFields(log.Fields{input: value, "data": data})
-	l.Log.Info(info)
+func (l Logger) LogInfo(key string, value string, message string, data interface{}) {
+	l.Log.WithFields(log.Fields{key: value, "data": data}).Info(message)
 }
 
-func (l Logger) LogError(input string, value string, err error) {
-	info := l.Log.WithFields(log.Fields{input: value, "error": err.Error()})
-	l.Log.Error(info)
+func (l Logger) LogError(key string, value string, message string, err error) {
+	l.Log.WithFields(log.Fields{key: value, "error": err.Error()}).Error(message)
 }

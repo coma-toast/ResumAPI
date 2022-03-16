@@ -18,6 +18,7 @@ func hideThis() {
 				Title:       "",
 				Location:    "",
 				Description: "",
+                Highlights:  []string{},
 			},
 		},
 		Projects: []candidate.Project{

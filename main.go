@@ -45,7 +45,6 @@ type CandidateData struct {
 }
 
 func main() {
-	env := &Env{Logger: utils.Logger{Log: &log.Logger{}}}
 	// Get config file and flags
 	configFileLocation, err := os.UserHomeDir()
 	if err != nil {
@@ -84,6 +83,7 @@ func main() {
 	if err != nil {
 		log.WithField("error", err).Warn("Error initializing cache")
 	}
+	env := &Env{Logger: utils.Logger{Log: &log.Logger{}}}
 
 	// Initialize instances
 	instances := APIInstances{
@@ -100,12 +100,13 @@ func main() {
 	api := &API{
 		instances: instances,
 		conf:      conf,
+		env:       env,
 	}
-	go api.RunAPI(env)
+	go api.RunAPI()
 	go func() {
 		ticker := 0
 		for range time.NewTicker(time.Second * time.Duration(300)).C {
-			env.Logger.LogInfo("loop", strconv.Itoa(ticker), nil)
+			env.Logger.LogInfo("loop", strconv.Itoa(ticker), "", nil)
 			ticker++
 		}
 	}()
@@ -126,7 +127,7 @@ func (n *NowPushAPI) GetUser() (nowpush.User, error) {
 
 	user, err := n.client.GetUser()
 	if err != nil {
-		n.env.Logger.LogError("error getting client", "nowpush", err)
+		n.env.Logger.LogError("error getting client", "nowpush", "", err)
 	}
 
 	return user, err
@@ -140,7 +141,7 @@ func (n *NowPushAPI) SendMessage(message_type string, note string, link string) 
 
 	messageResponse, err := n.client.SendMessage(message_type, note, link)
 	if err != nil {
-		n.env.Logger.LogError("error sending message", note, err)
+		n.env.Logger.LogError("error sending message", note, "", err)
 	}
 
 	return messageResponse, err
