@@ -1,0 +1,45 @@
+package main
+
+import "github.com/coma-toast/ResumAPI/pkg/candidate"
+
+func hideThis() {
+	// * this is just to make it easier to build a data item. Rename this to .go if needed
+	_ = candidate.Candidate{
+		Contact: candidate.Contact{
+			Name:    "",
+			Address: "",
+			Email:   "",
+			URLs:    []string{},
+		},
+		Experience: []candidate.Experience{
+			{
+				Date:        "",
+				Company:     "",
+				Title:       "",
+				Location:    "",
+				Description: "",
+			},
+		},
+		Projects: []candidate.Project{
+			{
+				Date:        "",
+				Name:        "",
+				URL:         "",
+				Description: "",
+				Highlights:  []string{},
+			},
+		},
+		DevEnvs: []candidate.DevEnv{
+			{
+				Name:     "",
+				Category: "",
+				URL:      "",
+			},
+		},
+		Hobbies: []candidate.Hobby{
+			{
+				Name: "",
+			},
+		},
+	}
+}

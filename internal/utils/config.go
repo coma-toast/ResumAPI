@@ -13,7 +13,9 @@ type Config struct {
 	CachePath     string
 	LogFilePath   string
 	Port          string
+	LandingPage   string
 	NowPushAPIKey string
+	DevMode       bool
 }
 
 func GetConf(configPath string) *Config {

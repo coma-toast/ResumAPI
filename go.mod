@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/gorilla/mux v1.8.0
+	github.com/keepeye/logrus-filename v0.0.0-20190711075016-ce01a4391dd1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/viper v1.10.1
 )
