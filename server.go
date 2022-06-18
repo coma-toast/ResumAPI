@@ -7,7 +7,9 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 
+	"github.com/alexliesenfeld/health"
 	"github.com/coma-toast/ResumAPI/internal/utils"
 	"github.com/coma-toast/ResumAPI/pkg/candidate"
 	"github.com/gorilla/mux"
@@ -31,12 +33,23 @@ type JSONResponse struct {
 }
 
 func (api API) RunAPI() {
+	checker := health.NewChecker(
+		health.WithCacheDuration(1*time.Second),
+		health.WithTimeout(10*time.Second),
+		// health.WithCheck(health.Check{
+		// 	Name: "Up",
+		// 	Check: func(ctx context.Context) error {
+		// 		return nil
+		// 	},
+		// }),
+	)
 	r := mux.NewRouter()
 	r.HandleFunc("/", api.LandingHandler).Methods(http.MethodGet)
 	r.HandleFunc("/", api.AddCandidateHandler).Methods(http.MethodPost)
 	r.HandleFunc("/{id}/{section}", api.CandidateHandler)
 	r.HandleFunc("/{id}", api.SetCandidateHandler).Methods(http.MethodPost)
 	r.HandleFunc("/ping", api.PingHandler)
+	r.HandleFunc("/health", health.NewHandler(checker))
 	r.HandleFunc("/reset", api.ResetHandler)
 	r.Use(api.notificationMiddleware)
 	api.env.Logger.LogError("", "", "api handler failed", http.ListenAndServe(fmt.Sprintf(":%s", api.conf.Port), r))
@@ -48,10 +61,11 @@ func (api *API) notificationMiddleware(next http.Handler) http.Handler {
 		if err != nil {
 			api.env.Logger.LogError("", "", "unable to get IP", err)
 		}
-
 		message := fmt.Sprintf("API called: %s from %s", r.URL.Path, ip)
 		api.env.Logger.LogInfo("API called", r.URL.Path, "", nil)
-		api.instances.nowPushInstance.SendMessage("nowpush_note", message, "")
+		if r.URL.Path != "/health" {
+			api.instances.nowPushInstance.SendMessage("nowpush_note", message, "")
+		}
 
 		next.ServeHTTP(w, r)
 	})

@@ -12,6 +12,7 @@ type Config struct {
 	PidFilePath   string
 	CachePath     string
 	LogFilePath   string
+	LogJson       bool
 	Port          string
 	LandingPage   string
 	NowPushAPIKey string

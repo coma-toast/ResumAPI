@@ -3,14 +3,18 @@ module github.com/coma-toast/ResumAPI
 go 1.17
 
 require (
+	github.com/alexliesenfeld/health v0.6.0
 	github.com/gorilla/mux v1.8.0
 	github.com/keepeye/logrus-filename v0.0.0-20190711075016-ce01a4391dd1
+	github.com/shirou/gopsutil v3.21.11+incompatible
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/viper v1.10.1
+	golang.org/x/sys v0.0.0-20220128215802-99c3d69c2c27
 )
 
 require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
@@ -21,7 +25,9 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
-	golang.org/x/sys v0.0.0-20211210111614-af8b64212486 // indirect
+	github.com/tklauser/go-sysconf v0.3.10 // indirect
+	github.com/tklauser/numcpus v0.4.0 // indirect
+	github.com/yusufpapurcu/wmi v1.2.2 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect

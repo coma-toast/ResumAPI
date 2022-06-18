@@ -56,11 +56,28 @@ func main() {
 	conf := utils.GetConf(*configPath)
 
 	// Logging setup
-	log.SetFormatter(&log.JSONFormatter{})
+	if conf.LogJson {
+		log.SetFormatter(&log.JSONFormatter{})
+	}
+
 	if conf.DevMode {
 		log.SetLevel(log.DebugLevel)
 		log.SetReportCaller(true)
 	}
+
+	// TODO: logging DB
+	// db, err := sql.Open("sqlite3", "."+"?parseTime=true")
+	// if err != nil {
+	// 	utils.HandleErr("db error", "sql.Open", err)
+	// }
+	// defer db.Close()
+
+	// createLogTable := `CREATE TABLE IF NOT EXISTS orders (
+	// 	id INTEGER PRIMARY KEY,
+	// 	ShopID TEXT NOT NULL,
+	// 	PrintifyOrder TEXT NOT NULL,
+	// 	EtsyReceipt TEXT NOT NULL
+	// 	)`
 
 	filenameHook := filename.NewHook()
 	filenameHook.Field = "line"
