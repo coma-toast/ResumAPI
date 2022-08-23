@@ -6,11 +6,16 @@ import (
 	"math/rand"
 	"strings"
 
+	"github.com/shirou/gopsutil/host"
 	log "github.com/sirupsen/logrus"
 )
 
 type Logger struct {
 	Log *log.Logger
+}
+
+type HealthData struct {
+	Uptime uint64
 }
 
 // HandleErr is to handle general errors with logging
@@ -48,6 +53,17 @@ func (l Logger) LogInfo(key string, value string, message string, data interface
 	l.Log.WithFields(log.Fields{key: value, "data": data}).Info(message)
 }
 
+func (l Logger) LogDebug(message string) {
+	l.Log.Debug(message)
+}
+
 func (l Logger) LogError(key string, value string, message string, err error) {
 	l.Log.WithFields(log.Fields{key: value, "error": err.Error()}).Error(message)
+}
+
+func GetHealthData() HealthData {
+	uptime, _ := host.Uptime()
+	return HealthData{
+		Uptime: uptime,
+	}
 }

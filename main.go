@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/coma-toast/ResumAPI/internal/notifications"
 	"github.com/coma-toast/ResumAPI/internal/utils"
 	"github.com/coma-toast/ResumAPI/pkg/candidate"
-	"github.com/coma-toast/ResumAPI/pkg/nowpush"
 	filename "github.com/keepeye/logrus-filename"
 	log "github.com/sirupsen/logrus"
 )
@@ -22,15 +22,8 @@ type Env struct {
 	Logger utils.Logger
 }
 
-type NowPushInstance interface {
-	GetUser() (nowpush.User, error)
-	SendMessage(message_type string, note string, link string) (nowpush.MessageResponse, error)
-}
-
-type NowPushAPI struct {
-	Token  string
-	client *nowpush.Client
-	env    *Env
+type NotificationInstance interface {
+	SendMessage(title, body string) error
 }
 
 type CandidateDataInstance interface {
@@ -66,18 +59,6 @@ func main() {
 	}
 
 	// TODO: logging DB
-	// db, err := sql.Open("sqlite3", "."+"?parseTime=true")
-	// if err != nil {
-	// 	utils.HandleErr("db error", "sql.Open", err)
-	// }
-	// defer db.Close()
-
-	// createLogTable := `CREATE TABLE IF NOT EXISTS orders (
-	// 	id INTEGER PRIMARY KEY,
-	// 	ShopID TEXT NOT NULL,
-	// 	PrintifyOrder TEXT NOT NULL,
-	// 	EtsyReceipt TEXT NOT NULL
-	// 	)`
 
 	filenameHook := filename.NewHook()
 	filenameHook.Field = "line"
@@ -104,9 +85,8 @@ func main() {
 
 	// Initialize instances
 	instances := APIInstances{
-		nowPushInstance: &NowPushAPI{
-			Token: conf.NowPushAPIKey,
-			env:   env,
+		notificationInstance: &notifications.NotificationAPI{
+			Target: conf.NotifAPITarget,
 		},
 		candidateDataInstance: &CandidateData{
 			env:   env,
@@ -131,37 +111,6 @@ func main() {
 	dontExit := make(chan bool)
 	// Waiting for a channel that never comes...
 	<-dontExit
-}
-
-// * NowPush functions
-func (n *NowPushAPI) GetUser() (nowpush.User, error) {
-	user := nowpush.User{}
-	if n.client == nil {
-		n.client = &nowpush.Client{
-			Token: n.Token,
-		}
-	}
-
-	user, err := n.client.GetUser()
-	if err != nil {
-		n.env.Logger.LogError("error getting client", "nowpush", "", err)
-	}
-
-	return user, err
-}
-func (n *NowPushAPI) SendMessage(message_type string, note string, link string) (nowpush.MessageResponse, error) {
-	if n.client == nil {
-		n.client = &nowpush.Client{
-			Token: n.Token,
-		}
-	}
-
-	messageResponse, err := n.client.SendMessage(message_type, note, link)
-	if err != nil {
-		n.env.Logger.LogError("error sending message", note, "", err)
-	}
-
-	return messageResponse, err
 }
 
 func (c *CandidateData) GetCandidateByID(id int) candidate.Candidate {

@@ -13,7 +13,6 @@ import (
 	"github.com/coma-toast/ResumAPI/internal/utils"
 	"github.com/coma-toast/ResumAPI/pkg/candidate"
 	"github.com/gorilla/mux"
-	log "github.com/sirupsen/logrus"
 )
 
 type API struct {
@@ -23,7 +22,7 @@ type API struct {
 }
 
 type APIInstances struct {
-	nowPushInstance       NowPushInstance
+	notificationInstance  NotificationInstance
 	candidateDataInstance CandidateDataInstance
 }
 type JSONResponse struct {
@@ -36,12 +35,6 @@ func (api API) RunAPI() {
 	checker := health.NewChecker(
 		health.WithCacheDuration(1*time.Second),
 		health.WithTimeout(10*time.Second),
-		// health.WithCheck(health.Check{
-		// 	Name: "Up",
-		// 	Check: func(ctx context.Context) error {
-		// 		return nil
-		// 	},
-		// }),
 	)
 	r := mux.NewRouter()
 	r.HandleFunc("/", api.LandingHandler).Methods(http.MethodGet)
@@ -64,7 +57,7 @@ func (api *API) notificationMiddleware(next http.Handler) http.Handler {
 		message := fmt.Sprintf("API called: %s from %s", r.URL.Path, ip)
 		api.env.Logger.LogInfo("API called", r.URL.Path, "", nil)
 		if r.URL.Path != "/health" {
-			api.instances.nowPushInstance.SendMessage("nowpush_note", message, "")
+			api.instances.notificationInstance.SendMessage("ResumAPI", message)
 		}
 
 		next.ServeHTTP(w, r)
@@ -85,15 +78,12 @@ func (api *API) respondWithError(w http.ResponseWriter, code int, message string
 // PingHandler is just a quick test to ensure api calls are working.
 func (api *API) PingHandler(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
-	log.Debug("Request sent to /api/ping")
-	api.instances.nowPushInstance.SendMessage("nowpush_note", "PING handler hit", "")
-
+	api.env.Logger.LogDebug("Request sent to /api/ping")
 	w.Write([]byte("Pong\n"))
 }
 
 func (api *API) LandingHandler(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
-	api.instances.nowPushInstance.SendMessage("nowpush_note", "landing page accessed", "")
 	http.Redirect(w, r, api.conf.LandingPage, http.StatusMovedPermanently)
 }
 

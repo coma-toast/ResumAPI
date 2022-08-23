@@ -8,15 +8,15 @@ import (
 
 // config is the configuration struct
 type Config struct {
-	DBPath        string
-	PidFilePath   string
-	CachePath     string
-	LogFilePath   string
-	LogJson       bool
-	Port          string
-	LandingPage   string
-	NowPushAPIKey string
-	DevMode       bool
+	DBPath         string
+	PidFilePath    string
+	CachePath      string
+	LogFilePath    string
+	LogJson        bool
+	Port           string
+	LandingPage    string
+	NotifAPITarget string
+	DevMode        bool
 }
 
 func GetConf(configPath string) *Config {
